@@ -2,9 +2,9 @@ package lab;
 
 import java.util.Scanner;
 
-public class Potencia {
+public class PotenciaRec {
 	
-	public static void main (String[] args) {
+	public static void main(String[] args) {
 		//Ctrl + SHIFT + O
 		Scanner teclado = new Scanner(System.in);
 		
@@ -16,11 +16,14 @@ public class Potencia {
 		
 		int b = Integer.parseInt(teclado.nextLine());
 		
-		int res =1;
-		while(b>0) {
-			res = res * a;
-			b--;
-		}		
-		System.out.println(res);	
+		int res = pot(a, b);
+	}
+	
+	private static int pot(int a, int b) {
+		if (b == 0) {
+			return 1;
+		}
+		return a*pot(a, b-1);
+			
 	}
 }
